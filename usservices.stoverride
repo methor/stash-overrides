@@ -4,7 +4,7 @@ desc: "增加独立策略组并覆盖规则"
 # 1. 创建一个新的策略组
 proxy-groups:
   - name: "US 专用"
-    type: "URL Test"
+    type: url-test
     # 下面这一行非常关键，它会自动引入你原订阅里的所有节点
     # include-all-proxies: true 
     # 你也可以指定只包含某些节点，比如：filter: "美国|US|United States"
