@@ -12,4 +12,4 @@ proxy-groups:
 
 # 2. 编写规则指向这个新策略组
 rules:
-  - DOMAIN-KEYWORD, notebooklm,"US 专用"
+  - DOMAIN-KEYWORD,notebooklm,"US 专用"
