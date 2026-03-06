@@ -1,15 +1,18 @@
 name: "US services 专用覆写"
-desc: "增加独立策略组并覆盖规则"
+desc: "增加独立美国策略组并置顶规则"
 
-# 1. 创建一个新的策略组
+# 1. 策略组配置
 proxy-groups:
   - name: "US 专用"
     type: url-test
-    # 下面这一行非常关键，它会自动引入你原订阅里的所有节点
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
+    # 自动引入所有订阅里的节点
     include-all: true
-    # 你也可以指定只包含某些节点，比如：filter: "美国|US|United States"
-    filter: "美国|US|United States"
+    # 过滤包含“美国”、“US”或“United States”的节点
+    # (?i) 确保 us、Us、US 都能被识别
+    filter: "(?i)美国|US|United States"
 
-# 2. 编写规则指向这个新策略组
-rules:
-  - DOMAIN-KEYWORD,notebooklm,"US 专用"
+# 2. 规则配置（置顶）
+prepend-rules:
+  - DOMAIN-KEYWORD,notebooklm,US 专用
